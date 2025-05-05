@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1. Tinh trung binh cong cua cac so le o vi tri chan</title>
+</head>
+<body>
+
+<script>
+
+  // Nhập mảng từ người dùng (sử dụng prompt trong trình duyệt)
+  let n = parseInt(prompt("Nhập số phần tử trong mảng (n <= 50):"));
+  while (n > 50 || isNaN(n) || n <= 0) {
+    n = parseInt(prompt("Vui lòng nhập lại số phần tử (1 <= n <= 50):"));
+  }
+
+  // Nhập mảng
+  let arr = [];
+  for (let i = 0; i < n; i++) {
+    let num = parseInt(prompt(`Nhập phần tử thứ ${i}:`));
+    arr.push(num);
+  }
+
+  // Tính trung bình cộng các số lẻ ở vị trí chẵn
+  let sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i += 2) { // duyệt vị trí chẵn
+    if (arr[i] % 2 !== 0) { // là số lẻ
+      sum += arr[i];
+      count++;
+    }
+  }
+
+  if (count > 0) {
+    let average = sum / count;
+    console.log("Trung bình cộng các số lẻ ở vị trí chẵn là:", average);
+    alert("Kết quả: " + average);
+  } else {
+    console.log("Không có số lẻ ở vị trí chẵn.");
+    alert("Không có số lẻ ở vị trí chẵn.");
+  }
+
+</script>
+
+</body>
+</html>

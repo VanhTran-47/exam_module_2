@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra cap so than thiet</title>
+</head>
+<body>
+<script>
+
+  // Hàm tính tổng các ước số của một số (trừ chính nó)
+  function sumOfDivisors(n) {
+    let sum = 0;
+    for (let i = 1; i <= n / 2; i++) {
+      if (n % i === 0) {
+        sum += i;
+      }
+    }
+    return sum;
+  }
+
+  // Hàm kiểm tra hai số có là cặp số thân thiết hay không
+  function isAmicablePair(a, b) {
+    if (a <= 0 || b <= 0) {
+      return false; // chỉ kiểm tra cho số nguyên dương
+    }
+
+    let sumA = sumOfDivisors(a);
+    let sumB = sumOfDivisors(b);
+
+    return sumA === b && sumB === a;
+  }
+
+  // Nhập hai số từ người dùng
+  let num1 = parseInt(prompt("Nhập số nguyên dương thứ nhất:"));
+  let num2 = parseInt(prompt("Nhập số nguyên dương thứ hai:"));
+
+  // Kiểm tra tính hợp lệ của đầu vào
+  if (isNaN(num1) || isNaN(num2) || num1 <= 0 || num2 <= 0) {
+    alert("Vui lòng nhập hai số nguyên dương hợp lệ.");
+  } else {
+
+    // Gọi hàm kiểm tra
+    let result = isAmicablePair(num1, num2);
+
+    if (result) {
+      alert(`True`);
+      console.log(`True`);
+    } else {
+      alert(`False`);
+      console.log(`False`);
+    }
+  }
+
+</script>
+</body>
+</html>
